@@ -1,0 +1,62 @@
+html, body{
+    
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(97, 122, 122);
+    color:rgb(209, 209, 224);
+    font-size: 16px;
+    line-height: 1.5;
+    height: 100vh;
+    overflow: hidden;
+
+}
+h1 {
+    color:rgb(209, 209, 224);
+    text-align:center;
+    margin: 0;
+    padding: 10px;
+    background-color: rgb(97, 122, 122);
+    border-bottom: 1px solid rgb(209, 209, 224);
+
+
+
+}
+main {
+    display: flex;
+    height: calc(100vh - 37px);
+    
+    
+    
+}
+#list {
+    background-color: blanchedalmond;   
+    flex: 3;   
+    padding: 10px 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 37px);
+    /* add background img from the styles folder */
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+}
+#form
+{
+    background-color: rgb(97, 122, 122);   
+    flex: 2;   
+    padding: 10px 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 37px);
+    
+    
+}
+
+#iImportant {
+    color: brown;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+
+
+}
