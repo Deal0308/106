@@ -60,19 +60,23 @@ function displayTask(task)
     let syntax = `<div class="task">
     <div class ="info">
     <h5>${task.title}</h5>
-    <p>${task.description}</p>
+    <p>${task.desc}</p>
     </div>
     <label>${task.status}</label>
     <div class="date-budget">
     <label>${task.startDate}</label>
     <label>${task.budget}</label>
-     </div>
+    </div>
     </div>`
     ;
 
     $(".pending-task").append(syntax);
 
 }
+
+
+
+
 
 
 function toggleVisibility(){
