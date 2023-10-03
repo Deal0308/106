@@ -152,9 +152,7 @@ main {
 .task p.completed{
     text-decoration: line-through;
 }
-.task p.important{
-    color: rgb(158, 102, 12);
-}
+
 .task p:hover{
     text-decoration: underline;
 }
@@ -168,9 +166,9 @@ main {
 .task i.completed{
     color: rgb(158, 102, 12);
 }
-.task i.important{
-    color: rgb(158, 102, 12);
-}
+
+ 
+
 .task i:hover{
     text-decoration: underline;
 }

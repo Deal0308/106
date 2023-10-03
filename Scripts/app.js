@@ -37,12 +37,47 @@ function saveTask(){
     //save to server (get connected to server)
     
     //display the task (get connected to server)
-    //here we want to render the object in to the list
-    displayTask(taskToSave)
-    clearForm();
-}
-//create a function that when the user clicks on the save button it clears the form
-    function clearForm(){
+
+        $.ajax({
+            type: 'GET',
+            url: "http://fsdiapi.azurewebsites.net/api/tasks",
+            data:JSON.stringify(taskToSave),
+            contentType: "application/json",
+            success: function(res){
+                console.log("Server says", res);
+            },
+            error: function(errorDetails){
+                console.log("Error", errorDetails);
+            }
+        });
+        
+        
+        //here we want to render the object in to the list
+        displayTask(taskToSave);
+        clearForm();
+    }
+    
+    //create a function that retrieves everything from the server
+    function loadData(){
+        $.ajax({
+            type: 'GET',
+            url: "http://fsdiapi.azurewebsites.net/api/tasks",
+            success: function(res){
+                console.log("Server says", res);
+                for(let i=0; i<res.length; i++){
+                    let task = res[i];
+                    if(task.isDone){
+                        displayTask(task);
+                    }
+                }
+            },
+            error: function(errorDetails){
+                console.log("Error", errorDetails);
+            }
+        });
+    }
+    //create a function that when the user clicks on the save button it clears the form
+function clearForm(){
     $("#txtTitle").val("");
     $("#txtDescription").val("");
     $("#selColor").val("");
@@ -51,9 +86,9 @@ function saveTask(){
     $("#numBudget").val("");
     $("#iImportant").removeClass("fa-solid fa-circle-check").addClass("fa-regular fa-circle-check");
     isImportant = false;
-
-    }
     
+}
+
 
 function displayTask(task)
 {
@@ -68,12 +103,22 @@ function displayTask(task)
     <label>${task.budget}</label>
     </div>
     </div>`
+
     ;
 
     $(".pending-task").append(syntax);
-
+    
 }
+// create a function that receives a task object and renders it in the list
 
+
+
+
+// add a button to the list html with a click event that marks the task as done
+// add a button to the list html with a click event that marks the task as important
+
+
+    
 
 
 
@@ -96,7 +141,8 @@ function toggleVisibility(){
 // create a GLOBAL (state) variable (isVisible) on the toggle and update the state in the list section
 
 function init(){
-    console.log("task manager");
+
+
     // load data
     
     // hook events 
